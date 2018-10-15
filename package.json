@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node_modules/.bin/nodemon ./bin/www"
+    "start": "node_modules/.bin/nodemon ./bin/www",
+    "setup": "npm i && npm run db:init",
+    "db:init": "node ./npm_scripts/create_db.js && npm run migrate && npm run seed:all",
+    "migrate": "node_modules/.bin/sequelize db:migrate --env development",
+    "seed:all": "node_modules/.bin/sequelize db:seed:all --env development"
   },
   "keywords": [],
   "author": "",
