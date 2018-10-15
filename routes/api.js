@@ -93,7 +93,7 @@ router.post('/auth', wrapper(async (req, res) => {
     return;
   }
 
-  res.json(user);
+  res.json(user.dataValues.secret);
 }));
 
 router.post('/test', wrapper(async (req, res) => {
